@@ -35,14 +35,35 @@ android {
         jvmTarget = "17"
     }
     buildFeatures {
-        compose = true
+        viewBinding = true
     }
 }
 
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
     implementation(libs.androidx.activity.compose)
+
+    // RecyclerView
+    implementation(libs.androidx.recyclerview)
+
+    // Retrofit + OkHttp
+    implementation(libs.retrofit)
+    implementation(libs.retrofit.gson)
+    implementation(libs.okhttp)
+
+    // Coroutines
+    implementation(libs.coroutines.android)
+
+    // OkHttp core library
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+
+    // OkHttp Logging Interceptor
+    implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
+
+    implementation("androidx.constraintlayout:constraintlayout:2.2.1")
+
 
     implementation(platform(libs.androidx.compose.bom))
     implementation(libs.androidx.ui)
