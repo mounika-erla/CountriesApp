@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
 
         // Setup Retrofit & Repository
         val apiService = Retrofit.Builder()
-            .baseUrl("https://gist.githubusercontent.com/") // 👈 Your endpoint base
+            .baseUrl("https://gist.githubusercontent.com/") //
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(ApiService::class.java)
