@@ -1,4 +1,4 @@
-package com.example.countriesapp
+package com.example.countriesapp.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.countriesapp.R
 import com.example.countriesapp.data.model.Country
 
 class CountryAdapter : ListAdapter<Country, CountryAdapter.CountryViewHolder>(CountryDiffCallback()) {
@@ -25,26 +26,15 @@ class CountryAdapter : ListAdapter<Country, CountryAdapter.CountryViewHolder>(Co
 
     override fun onBindViewHolder(holder: CountryViewHolder, position: Int) {
         val country = getItem(position)
-
-        // First line: "name, region" left, "code" right
         holder.nameRegion.text = "${country.name ?: "N/A"}, ${country.region ?: "N/A"}"
         holder.code.text = country.code ?: "N/A"
-
-        // Second line: capital
         holder.capital.text = country.capital ?: "N/A"
-
-        // Accessibility: read all info as one sentence
         holder.itemView.contentDescription =
             "${country.name ?: "N/A"}, capital: ${country.capital ?: "N/A"}, region: ${country.region ?: "N/A"}, code: ${country.code ?: "N/A"}"
     }
 }
 
 class CountryDiffCallback : DiffUtil.ItemCallback<Country>() {
-    override fun areItemsTheSame(oldItem: Country, newItem: Country): Boolean {
-        return oldItem.code == newItem.code
-    }
-
-    override fun areContentsTheSame(oldItem: Country, newItem: Country): Boolean {
-        return oldItem == newItem
-    }
+    override fun areItemsTheSame(oldItem: Country, newItem: Country): Boolean = oldItem.code == newItem.code
+    override fun areContentsTheSame(oldItem: Country, newItem: Country): Boolean = oldItem == newItem
 }

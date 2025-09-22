@@ -9,9 +9,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-class CountryViewModel(
-    private val repository: CountryRepository
-) : ViewModel() {
+class CountryViewModel(private val repository: CountryRepository) : ViewModel() {
 
     private val _countries = MutableStateFlow<Resource<List<Country>>>(Resource.Loading())
     val countries: StateFlow<Resource<List<Country>>> = _countries

@@ -5,13 +5,13 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.countriesapp.data.repository.CountryRepository
 
 class CountryViewModelFactory(
-    private val api: CountryRepository
+    private val repository: CountryRepository
 ) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(CountryViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return CountryViewModel(api) as T
+            return CountryViewModel(repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

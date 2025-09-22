@@ -5,22 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="12dp"
-    android:background="?android:attr/selectableItemBackground"
-    android:clickable="true"
-    android:focusable="true"
-    android:layout_marginBottom="8dp">
+    android:background="?android:attr/selectableItemBackground">
 
-    <!-- First line: name, region left; code right -->
     <TextView
         android:id="@+id/countryNameRegion"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="United States of America, NA"
+        android:text="Country, Region"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#000000"
         android:ellipsize="end"
-        android:singleLine="true"
+        android:maxLines="1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/countryCode"
         app:layout_constraintTop_toTopOf="parent"/>
@@ -29,19 +25,18 @@
         android:id="@+id/countryCode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="US"
+        android:text="XX"
         android:textSize="16sp"
         android:textStyle="bold"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/countryNameRegion"/>
 
-    <!-- Second line: capital -->
     <TextView
         android:id="@+id/countryCapital"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="Washington, D.C."
+        android:text="Capital"
         android:textSize="14sp"
         android:textColor="#555555"
         android:paddingTop="4dp"

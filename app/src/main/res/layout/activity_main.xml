@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.MainActivity">
+    android:layout_height="match_parent">
 
-    <!-- Progress bar for loading -->
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
@@ -16,13 +13,20 @@
         android:visibility="gone"
         style="?android:attr/progressBarStyleLarge"/>
 
+    <TextView
+        android:id="@+id/emptyView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No countries available"
+        android:gravity="center"
+        android:visibility="gone"
+        android:padding="16dp"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:padding="8dp"
-        android:scrollbars="vertical"
-        android:contentDescription="@string/countries_list"
-        tools:listitem="@layout/item_country"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="List of countries"/>
+
 </LinearLayout>
